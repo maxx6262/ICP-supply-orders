@@ -7,7 +7,7 @@
       "root": "src",
       "ts": "src/index.ts",
       "candid": "src/index.did",
-      "wasm": ".azle/message_board/supply_system.wasm.gz"
+      "wasm": ".azle/message_board/supply_order.wasm.gz"
     }
   }
 }
