@@ -37,7 +37,7 @@ export function getItem(id: string): Result<Item, string> {
 }
 
 $update
-export function addItem(payload: ItemPayload) {
+export function addItem(payload: ItemPayload): Result<Item, string> {
     const item: Item = { id: uuidv4(), firstReferenceAt: ic.time(), stockEstimation: Opt.None, disabled: false, updatedAt: Opt.None, ...payload };
     common_catalog.insert(item.id, item);
     return Result.Ok(item);
