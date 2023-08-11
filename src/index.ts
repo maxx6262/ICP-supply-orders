@@ -12,7 +12,7 @@ type Item = Record<{
     name:                   string;
     description:            string;
     firstReferenceAt:       nat64;
-    stockEstimation:        Opt<nat64>;
+    stockEstimation:        Opt<number>;
     disabled:               boolean;
     updatedAt:              Opt<nat64>;
 }>
@@ -77,7 +77,7 @@ export function enableItem(id: string): Result<Item, string> {
 }
 
 $update;
-export function addSupplyStock(id: string, quantity: nat64): Result<Item, string> {
+export function addSupplyStock(id: string, quantity: number): Result<Item, string> {
     return match(common_catalog.get(id), {
         Some: (item) => {
             const suppliedItem: Item = {...item, stockEstimation: item.stockEstimation + quantity, updatedAt: Opt.Some(ic.time())};
@@ -88,7 +88,7 @@ export function addSupplyStock(id: string, quantity: nat64): Result<Item, string
 }
 
 $update;
-export function decreaseStock(id: string, quantity: nat64): Result<Item, string> {
+export function decreaseStock(id: string, quantity: number): Result<Item, string> {
     return match(common_catalog.get(id), {
         Some: (item) => {
             const unstockedItem: Item = {...item, stockEstimation: item.stockEstimation - quantity, updatedAt: Opt.Some(ic.time())};
