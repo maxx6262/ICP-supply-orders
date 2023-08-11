@@ -12,7 +12,7 @@ type Item = Record<{
     name:                   string;
     description:            string;
     firstReferenceAt:       nat64;
-    stockEstimation:        Opt<number>;
+    stockEstimation:        number;
     disabled:               boolean;
     updatedAt:              Opt<nat64>;
 }>
@@ -38,7 +38,7 @@ export function getItem(id: string): Result<Item, string> {
 
 $update
 export function addItem(payload: ItemPayload): Result<Item, string> {
-    const item: Item = { id: uuidv4(), firstReferenceAt: ic.time(), stockEstimation: Opt.None, disabled: false, updatedAt: Opt.None, ...payload };
+    const item: Item = { id: uuidv4(), firstReferenceAt: ic.time(), stockEstimation: 0, disabled: false, updatedAt: Opt.None, ...payload };
     common_catalog.insert(item.id, item);
     return Result.Ok(item);
 }
