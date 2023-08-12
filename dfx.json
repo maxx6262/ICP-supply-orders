@@ -17,6 +17,6 @@
       "ts": "src/Supplier/index.ts",
       "candid": "src/Supplier/index.did",
       "wasm": ".azle/Supplier/Supplier.wasm.gz"
-    },
+    }
   }
 }
