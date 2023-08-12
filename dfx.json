@@ -1,13 +1,14 @@
 {
   "canisters": {
-    "items": {
-      "main": "src/items/index.ts",
+    "Item": {
+      "main": "src/Item/index.ts",
       "type": "custom",
-      "build": "npx azle items",
-      "root": "src/items",
-      "ts": "src/items/index.ts",
-      "candid": "src/items/index.did",
-      "wasm": ".azle/items/items.wasm.gz"
-    }
+      "build": "npx azle Item",
+      "root": "src/Item",
+      "ts": "src/Item/index.ts",
+      "candid": "src/Item/index.did",
+      "wasm": ".azle/Item/Item.wasm.gz"
+    },
+
   }
 }

@@ -1,7 +1,7 @@
-import { $query, $update, Record, StableBTreeMap, Vec, match, Result, nat64, ic, Opt } from 'azle';
+import { $query, $update, Record, StableBTreeMap, Vec, match, Result, nat64, ic, Opt, int } from 'azle';
 import { v4 as uuidv4 } from 'uuid';
 
-// First of all, we manage products & items supplied and orderable
+// First of all, we manage products & Items supplied and orderable
 
 /**
  * This type represents an asset that can be bought or put on sale
@@ -48,6 +48,7 @@ export function updateItem(id: string, payload: ItemPayload): Result<Item, strin
     return match(common_catalog.get(id), {
         Some: (item) => {
             const updatedItem: Item = {...item, ...payload, updatedAt: Opt.Some(ic.time())};
+            common_catalog.insert(item.id, updatedItem);
             return Result.Ok<Item, string>(updatedItem);
         },
         None: () => Result.Err<Item, string>(`couldn't update item specifications. Item with id=${id} not found`)
