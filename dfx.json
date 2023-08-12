@@ -9,6 +9,14 @@
       "candid": "src/Item/index.did",
       "wasm": ".azle/Item/Item.wasm.gz"
     },
-
+    "Supplier": {
+      "main": "src/Supplier/index.ts",
+      "type": "custom",
+      "build": "npx azle Supplier",
+      "root": "src/Supplier",
+      "ts": "src/Supplier/index.ts",
+      "candid": "src/Supplier/index.did",
+      "wasm": ".azle/Supplier/Supplier.wasm.gz"
+    },
   }
 }
