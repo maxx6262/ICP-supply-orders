@@ -17,6 +17,15 @@
       "ts": "src/Supplier/index.ts",
       "candid": "src/Supplier/index.did",
       "wasm": ".azle/Supplier/Supplier.wasm.gz"
+    },
+    "Customer": {
+      "main": "src/Customer/index.ts",
+      "type": "custom",
+      "build": "npx azle Customer",
+      "root": "src/Customer",
+      "ts": "src/Customer/index.ts",
+      "candid": "src/Customer/Customer.did",
+      "wasm": ".azle/Customer/Customer.wasm.gz"
     }
   }
 }
